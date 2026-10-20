@@ -37,6 +37,10 @@ body.creative-app .creative-frame-actions button,body.creative-app .creative-lay
 body.creative-app .creative-frame-actions button:hover{border-color:var(--ps-cyan);background:#2c3b60}
 body.creative-app #creative-status{color:#9deef0}
 body.creative-app .creative-shell footer{color:#8f9dbb}
+body.creative-app{display:flex;flex-direction:column}
+body.creative-app .creative-shell{flex:1;display:flex;flex-direction:column;padding-bottom:clamp(16px,2vw,28px)}
+body.creative-app #creative-status:empty{display:none}
+body.creative-app .creative-shell footer{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:16px;border-top:1px solid #ffffff1a;font-size:12px}
 @media(max-width:600px){body.creative-app .creative-header{padding-bottom:16px}body.creative-app .creative-header-actions{justify-content:flex-start}body.creative-app .creative-brand img{width:52px;height:52px;border-radius:14px}body.creative-app .creative-local{margin-top:0}body.creative-app .creative-start{margin-top:18px;padding:18px}body.creative-app .creative-actions{gap:9px}body.creative-app .creative-actions button{min-height:138px;padding:12px 12px 28px}body.creative-app .creative-actions button span{width:34px;height:34px;font-size:23px}body.creative-app .creative-actions button strong{font-size:14px}body.creative-app .creative-actions button small{font-size:10px}body.creative-app .creative-actions button b{right:11px;top:11px;font-size:17px}body.creative-app .creative-frames{padding:16px}}
 @media(max-width:430px){body.creative-app .creative-actions .creative-action-image,body.creative-app .creative-actions .creative-action-video{grid-column:1/-1;min-height:112px}body.creative-app .creative-actions button{min-height:118px}body.creative-app .creative-action-image small,body.creative-app .creative-action-video small{font-size:11px}}
 #creative-install-guide{box-sizing:border-box;width:min(440px,calc(100vw - 28px));max-width:none;padding:22px;border:1px solid #657ba9;border-radius:19px;background:#17223e;color:#f6f8ff;box-shadow:0 20px 70px #000b}
