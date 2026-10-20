@@ -1,0 +1,110 @@
+/* PicShift branding lives only in the standalone app. Editor behavior is unchanged. */
+body.creative-app{--ps-bg:#0b1023;--ps-panel:#151d38;--ps-line:#38476c;--ps-cyan:#61e7f6;--ps-violet:#a789ff;--ps-text:#f6f8ff;min-height:100dvh;background:radial-gradient(circle at 84% -8%,#352c69 0,transparent 35%),radial-gradient(circle at -10% 28%,#10435e 0,transparent 32%),#0b1023;color:var(--ps-text)}
+body.creative-app .creative-shell{box-sizing:border-box;width:100%;max-width:1080px;padding:clamp(18px,4vw,48px)}
+body.creative-app .creative-header{align-items:center;gap:20px;padding:2px 0 22px;border-bottom:1px solid #ffffff1d}
+body.creative-app .creative-brand{display:flex;align-items:center;gap:15px;min-width:0}
+body.creative-app .creative-brand img{width:64px;height:64px;flex:none;border-radius:17px;box-shadow:0 8px 26px #0007}
+body.creative-app .creative-brand small{font-size:.65rem;letter-spacing:.24em;color:#9bdbe7;font-weight:850}
+body.creative-app .creative-brand h1{margin:2px 0 0;font-size:clamp(26px,4vw,38px);letter-spacing:.04em;line-height:1.15}
+body.creative-app .creative-local{border:1px solid #6bdbe57a;background:#69e6ef12;color:#b9f8f9;font-weight:750}
+body.creative-app .creative-header-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+body.creative-app #creative-install{min-height:37px;padding:7px 13px;border:1px solid #80e4f3;border-radius:99px;background:linear-gradient(110deg,#5adce9,#aa94ff);color:#102039;font:inherit;font-size:.78rem;font-weight:850;cursor:pointer}
+body.creative-app #creative-install[hidden]{display:none}
+body.creative-app .creative-start{position:relative;overflow:hidden;margin-top:30px;padding:clamp(18px,3vw,32px);border:1px solid #53628a9c;border-radius:27px;background:linear-gradient(145deg,#1c2949ed,#121a34f5 65%);box-shadow:0 22px 58px #0207139c}
+body.creative-app .creative-start::before{content:"";position:absolute;right:-130px;top:-160px;width:380px;height:380px;border-radius:50%;background:#7976ff20;filter:blur(6px);pointer-events:none}
+body.creative-app .creative-intro{position:relative;margin-bottom:23px}
+body.creative-app .creative-eyebrow{color:var(--ps-cyan);font-size:.7rem;font-weight:900;letter-spacing:.22em}
+body.creative-app .creative-intro h2{margin:9px 0 7px;font-size:clamp(24px,4vw,38px);line-height:1.35;letter-spacing:.01em}
+body.creative-app .creative-intro p{margin:0;color:#c8d3e9;font-size:clamp(.82rem,2vw,.95rem);line-height:1.6}
+body.creative-app .creative-actions{position:relative;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+body.creative-app .creative-actions button{position:relative;box-sizing:border-box;min-width:0;min-height:138px;padding:18px 52px 17px 18px;border:1px solid #526184;border-radius:18px;background:linear-gradient(145deg,#26324f,#1c2745);color:var(--ps-text);box-shadow:inset 0 1px #ffffff14;transition:transform .16s,border-color .16s,box-shadow .16s;overflow-wrap:anywhere}
+body.creative-app .creative-actions button:hover,body.creative-app .creative-actions button:focus-visible{transform:translateY(-2px);border-color:var(--ps-cyan);box-shadow:0 10px 26px #0005,0 0 0 2px #61e7f633;outline:none}
+body.creative-app .creative-actions .creative-action-image{border-color:#5eddea9c;background:linear-gradient(135deg,#125979,#163755 52%,#1c2e51)}
+body.creative-app .creative-actions .creative-action-video{border-color:#aa8fff99;background:linear-gradient(135deg,#3d2c71,#252c60 58%,#1b2a54)}
+body.creative-app .creative-actions button span{display:grid;place-items:center;width:38px;height:38px;margin-bottom:5px;border-radius:11px;background:#ffffff18;color:#d9f9ff;font-size:26px;line-height:1}
+body.creative-app .creative-actions .creative-action-video span{color:#ebddff}
+body.creative-app .creative-actions button strong{font-size:clamp(16px,2vw,20px);line-height:1.35}
+body.creative-app .creative-actions button small{max-width:100%;color:#c9d7e8;line-height:1.45;white-space:normal;overflow-wrap:anywhere}
+body.creative-app .creative-actions button b{position:absolute;right:17px;top:18px;color:#bdd7f2;font-size:22px;font-weight:500}
+body.creative-app .creative-frames{margin-top:22px;padding:22px;border:1px solid #394768;border-radius:22px;background:#151d33d9;box-shadow:0 12px 35px #02071355}
+body.creative-app .creative-section-heading small{color:#86cdd8;font-size:.66rem;letter-spacing:.19em}
+body.creative-app .creative-section-heading h2{margin:5px 0 0;font-size:21px}
+body.creative-app #frame-count{padding:5px 10px;border-radius:99px;background:#273451;color:#b9c9e9;font-size:.76rem;font-weight:800;white-space:nowrap}
+body.creative-app .creative-work-help{margin:7px 0 16px;color:#b0bdd5;font-size:.82rem}
+body.creative-app .creative-frame{border-color:#58709a;background:#101a30}
+body.creative-app .creative-frame[aria-selected=true]{border-color:var(--ps-cyan);box-shadow:0 0 0 2px #61e7f633}
+body.creative-app .creative-frame-actions button,body.creative-app .creative-layout select{border-color:#526285;background:#24314f;color:#f6f8ff}
+body.creative-app .creative-frame-actions button:hover{border-color:var(--ps-cyan);background:#2c3b60}
+body.creative-app #creative-status{color:#9deef0}
+body.creative-app .creative-shell footer{color:#8f9dbb}
+@media(max-width:600px){body.creative-app .creative-header{padding-bottom:16px}body.creative-app .creative-header-actions{justify-content:flex-start}body.creative-app .creative-brand img{width:52px;height:52px;border-radius:14px}body.creative-app .creative-local{margin-top:0}body.creative-app .creative-start{margin-top:18px;padding:18px}body.creative-app .creative-actions{gap:9px}body.creative-app .creative-actions button{min-height:138px;padding:12px 12px 28px}body.creative-app .creative-actions button span{width:34px;height:34px;font-size:23px}body.creative-app .creative-actions button strong{font-size:14px}body.creative-app .creative-actions button small{font-size:10px}body.creative-app .creative-actions button b{right:11px;top:11px;font-size:17px}body.creative-app .creative-frames{padding:16px}}
+@media(max-width:430px){body.creative-app .creative-actions .creative-action-image,body.creative-app .creative-actions .creative-action-video{grid-column:1/-1;min-height:112px}body.creative-app .creative-actions button{min-height:118px}body.creative-app .creative-action-image small,body.creative-app .creative-action-video small{font-size:11px}}
+#creative-install-guide{box-sizing:border-box;width:min(440px,calc(100vw - 28px));max-width:none;padding:22px;border:1px solid #657ba9;border-radius:19px;background:#17223e;color:#f6f8ff;box-shadow:0 20px 70px #000b}
+#creative-install-guide::backdrop{background:#050b1ad9}
+#creative-install-guide h2{margin:0 0 10px;font-size:1.3rem}
+#creative-install-guide p,#creative-install-guide li{line-height:1.65;font-size:.86rem;color:#d1def0}
+#creative-install-guide ol{padding-left:1.35em}
+#creative-install-guide .creative-install-note{color:#8feaf0;font-size:.77rem}
+#creative-install-guide form{text-align:right}
+#creative-install-guide button{min-height:40px;padding:8px 22px;border:0;border-radius:10px;background:#6fe4ee;color:#102039;font:inherit;font-weight:850}
+
+/* Photo editor: new PicShift control surface, with the same controls and gestures. */
+body.creative-app .memo-art-editor.theme-electric{border-color:#516593;background:#0d142a;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric.is-fullscreen,body.creative-app .memo-art-editor.theme-electric.is-fullscreen>form,body.creative-app .memo-art-editor.theme-electric.is-fullscreen>form>.art-canvas-wrap{background:#18213c}
+body.creative-app .memo-art-editor.theme-electric.is-fullscreen .art-studio-topbar{border-bottom-color:#415579;background:#0e1730;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-studio-title{color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-studio-topbar .art-top-apply{background:#68e5f3;color:#102338}
+body.creative-app .memo-art-editor.theme-electric .art-bottom-rail,body.creative-app .memo-art-editor.theme-electric.is-fullscreen>form>.art-bottom-rail{border-color:#3d507a;background:#111b36;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-bottom-rail::after{background:linear-gradient(90deg,transparent,#111b36)}
+body.creative-app .memo-art-editor.theme-electric .art-rail-head,body.creative-app .memo-art-editor.theme-electric .art-rail-head strong{color:#7ceaf3}
+body.creative-app .memo-art-editor.theme-electric .art-rail-head span{color:#a5b7d8}
+body.creative-app .memo-art-editor.theme-electric .art-rail-tool{color:#dce8ff}
+body.creative-app .memo-art-editor.theme-electric .art-rail-tool:hover{background:#263b5c}
+body.creative-app .memo-art-editor.theme-electric .art-rail-tool.is-active{border-color:#75e7f2;background:linear-gradient(140deg,#58e2ed,#a393ff);color:#0e1b34;box-shadow:0 4px 16px #61e7f640}
+body.creative-app .memo-art-editor.theme-electric .art-context-dock,body.creative-app .memo-art-editor.theme-electric.is-fullscreen .art-full-tools-panel{border-color:#526893;background:#17223e;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-panel-header{border-color:#3f537c;background:#101b34;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-panel-header .btn,body.creative-app .memo-art-editor.theme-electric .art-selection-bar .btn,body.creative-app .memo-art-editor.theme-electric .art-context-dock .btn{border-color:#6379a3;background:#293b5d;color:#f6f8ff}
+body.creative-app .memo-art-editor.theme-electric .art-panel-header .btn:hover,body.creative-app .memo-art-editor.theme-electric .art-context-dock .btn:hover{border-color:#67e2ef}
+body.creative-app .memo-art-editor.theme-electric .art-selection-bar{border-color:#4c618c;background:#233250;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-selection-bar select{border-color:#6379a3;background:#111c36;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-control-tabs{border-color:#3f527b;background:#101a32}
+body.creative-app .memo-art-editor.theme-electric .art-control-tabs .btn{color:#b7c9e5}
+body.creative-app .memo-art-editor.theme-electric .art-control-tabs [aria-pressed=true]{background:#68e5f3;color:#0e2238;box-shadow:0 3px 12px #68e5f333}
+body.creative-app .memo-art-editor.theme-electric .art-control-page label,body.creative-app .memo-art-editor.theme-electric #art-crop-panel .art-controls label,body.creative-app .memo-art-editor.theme-electric .art-sound-controls label{border-color:#3f557e;background:#1c2a49;color:#ecf4ff}
+body.creative-app .memo-art-editor.theme-electric .art-control-page label:focus-within{border-color:#75e8f3;box-shadow:0 0 0 2px #75e8f333}
+body.creative-app .memo-art-editor.theme-electric input[type=range]{accent-color:#75e8f3}
+body.creative-app .memo-art-editor.theme-electric .art-context-dock select,body.creative-app .memo-art-editor.theme-electric .art-context-dock input:not([type=range]):not([type=color]),body.creative-app .memo-art-editor.theme-electric .art-context-dock textarea{border-color:#60749e;background:#101a33;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-layer-panel,body.creative-app .memo-art-editor.theme-electric .art-text-preview,body.creative-app .memo-art-editor.theme-electric .art-extra-tools{border-color:#4d608a;background:#202e4c;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-side-layers{border-color:#50658e;background:#172440eb;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-side-toggle{background:#75e8f3;color:#0e2238}
+body.creative-app .memo-art-editor.theme-electric .art-side-row,body.creative-app .memo-art-editor.theme-electric .art-side-popup{background:#263756;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-crop-actions{border-color:#4f6690;background:#1b2b49}
+body.creative-app .memo-art-editor.theme-electric .art-crop-keep{background:#75e8f3;color:#0e2238}
+body.creative-app .memo-art-editor.theme-electric .art-theme-choices{border-color:#4d6089;background:#101a32}
+body.creative-app .memo-art-editor.theme-electric .art-theme-choices button{border-color:#6175a0;background:#263756;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-theme-choices [aria-pressed=true],body.creative-app .memo-art-editor.theme-electric .art-command-strip [aria-pressed=true]{border-color:#75e8f3;background:#75e8f3;color:#0e2238}
+body.creative-app .memo-art-editor.theme-electric .art-live-text-bar{border-color:#556c96;background:#172441f5;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-live-text-bar textarea{border-color:#6176a1;background:#101b34;color:#f5f7ff}
+body.creative-app .memo-art-editor.theme-electric .art-live-text-head button{border-color:#6379a3;background:#293b5d;color:#f5f7ff}
+body.creative-app .blank-canvas-dialog.theme-electric,body.creative-app .art-color-dialog.theme-electric{border-color:#576d9a;background:#17223e;color:#f5f7ff}
+body.creative-app .blank-canvas-dialog.theme-electric input,body.creative-app .blank-canvas-dialog.theme-electric select,body.creative-app .art-color-dialog.theme-electric .art-color-hex{border-color:#6176a1;background:#101a33;color:#f5f7ff}
+body.creative-app .blank-canvas-dialog.theme-electric .blank-canvas-actions .primary,body.creative-app .art-color-dialog.theme-electric .art-color-actions [data-color-action=apply]{border-color:#75e8f3;background:#75e8f3;color:#0e2238}
+body.creative-app .memo-art-editor.theme-natural .art-rail-tool.is-active,body.creative-app .memo-art-editor.theme-original .art-rail-tool.is-active{background:#70e2ed;color:#102338}
+body.creative-app .memo-art-editor.theme-natural .art-control-tabs [aria-pressed=true],body.creative-app .memo-art-editor.theme-original .art-control-tabs [aria-pressed=true]{background:#274f8c;color:#fff}
+
+/* Video and page timeline share the new visual language. */
+body.creative-app .local-video-editor,body.creative-app .flipbook-dialog{border-color:#596e9a;background:#121d38;color:#f5f7ff}
+body.creative-app .local-video-editor::backdrop,body.creative-app .flipbook-dialog::backdrop{background:#060b1ddd}
+body.creative-app .local-video-editor button,body.creative-app .flipbook-dialog button{border-color:#667da8;background:#263858;color:#f5f7ff}
+body.creative-app .local-video-editor button:hover,body.creative-app .flipbook-dialog button:hover{border-color:#75e8f3}
+body.creative-app .ve-heading{border-bottom-color:#455c86;background:#111c37}
+body.creative-app .ve-tracks{border-color:#4b628b;background:#1c2b4a}
+body.creative-app .ve-video-track button{background:#32558b}
+body.creative-app .ve-audio-track,body.creative-app .ve-caption-track{background:#15223e}
+body.creative-app .ve-audio-track button{background:#5a438e}
+body.creative-app .ve-caption-track button{background:#675035}
+body.creative-app .ve-panel{border-color:#4b628b;background:#1c2b4a}
+body.creative-app .local-video-editor input[type=number],body.creative-app .local-video-editor select,body.creative-app .local-video-editor textarea,body.creative-app .flipbook-dialog input[type=number]{border-color:#6076a2;background:#101a33;color:#f5f7ff}
+body.creative-app .local-video-editor input[type=range],body.creative-app .flipbook-dialog input[type=range]{accent-color:#75e8f3}
+body.creative-app .ve-video-track .is-selected,body.creative-app .ve-audio-track .is-selected,body.creative-app .ve-caption-track .is-selected{outline-color:#75e8f3}
+body.creative-app .ve-panel .ve-export,body.creative-app .flipbook-dialog .flipbook-export{border-color:#75e8f3;background:linear-gradient(100deg,#56deeb,#9b8cff);color:#0d1d37}
