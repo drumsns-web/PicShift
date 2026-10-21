@@ -1101,3 +1101,15 @@ body.creative-app .local-video-editor .ve-heading .ve-save-top{background:#72e8f
 .local-video-editor .ve-details[data-mode=caption] .ve-panel:nth-of-type(3){overflow-y:auto;overscroll-behavior:contain}
 
 .local-video-editor .ve-saved-material-icon{display:grid;place-items:center;width:100%;height:42px;background:#364759;color:#93e5ed;font-size:28px}
+
+/* Keep the timecode clear of the transport controls on narrow phones. */
+.local-video-editor .ve-transport{display:grid;flex:0 0 51px;min-height:51px;grid-template-columns:36px minmax(98px,auto) 36px 42px;grid-template-rows:14px 34px;align-content:center;justify-content:center;align-items:center;column-gap:5px;row-gap:2px;flex-wrap:nowrap}
+.local-video-editor .ve-time{position:static;grid-column:1/-1;grid-row:1;justify-self:center;min-width:0;max-width:100%;overflow:hidden;color:#c8d9e7;font-size:10px;font-variant-numeric:tabular-nums;line-height:14px;text-overflow:ellipsis;white-space:nowrap}
+.local-video-editor .ve-transport button{grid-row:2;height:34px;min-height:34px;padding:2px 5px}
+.local-video-editor .ve-transport [data-ve=frame-prev]{grid-column:1}
+.local-video-editor .ve-transport [data-ve=play]{grid-column:2;min-width:98px;border:1px solid #93f4fa;border-radius:9px;background:linear-gradient(#80f4f7,#36cedd);color:#08232b;font-size:14px;font-weight:900;box-shadow:0 2px 7px #10c7e34d}
+.local-video-editor .ve-transport [data-ve=play]:active{background:#18aabf;box-shadow:inset 0 2px 5px #07586788}
+.local-video-editor .ve-transport [data-ve=frame-next]{grid-column:3}
+.local-video-editor .ve-transport [data-ve=keyframe-toggle]{grid-column:4}
+.local-video-editor .ve-timeline-scroll{overscroll-behavior-x:contain}
+.local-video-editor .ve-video-track button,.local-video-editor .ve-audio-track button,.local-video-editor .ve-caption-track button,.local-video-editor .ve-effect-track button,.local-video-editor .ve-overlay-track button{touch-action:none;-webkit-user-select:none;user-select:none}
