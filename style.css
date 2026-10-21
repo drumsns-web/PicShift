@@ -1200,3 +1200,41 @@ body.creative-app .local-video-editor .ve-heading .ve-save-top{background:#72e8f
 .local-video-editor .ve-recording-bar button{min-height:29px;padding:3px 8px;border:0;border-radius:6px;background:#f45b67;color:#fff;font-size:11px;font-weight:700;white-space:nowrap}
 .local-video-editor .ve-recording-bar [data-ve=mic-cancel]{background:#5c6773}
 @keyframes ve-record-pulse{50%{opacity:.25}}
+
+/* One timeline item is active at a time; scene frames replace the loading fill. */
+.local-video-editor .ve-selection-indicator{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 7px;border:1px solid #68dce9;border-radius:5px;background:#173f4b;color:#dcfcff;font-size:10px;font-weight:800}
+.local-video-editor .ve-selection-indicator[data-kind=audio]{border-color:#ffbc69;background:#493424;color:#fff2d8}
+.local-video-editor .ve-selection-indicator[data-kind=caption]{border-color:#d5a8ff;background:#422a52;color:#f7eaff}
+.local-video-editor .ve-selection-indicator[data-kind=effect]{border-color:#f3a7bc;background:#502c3c;color:#fff0f4}
+.local-video-editor .ve-selection-indicator[data-kind=overlay]{border-color:#95b9ff;background:#263e62;color:#edf4ff}
+.local-video-editor .ve-audio-track button.is-selected{outline:3px solid #ffbd6d;outline-offset:-3px;box-shadow:0 0 0 2px #fff9;z-index:1}
+.local-video-editor .ve-caption-track button.is-selected{outline-color:#d5a8ff}
+.local-video-editor .ve-clip-frame{background-size:contain;background-repeat:no-repeat;background-color:#101820}
+.local-video-editor .ve-clip-frame:not(.has-scene){background:#1d2d39}
+
+/* A labeled four-arrow control is distinct from selection and crop handles. */
+.local-video-editor .ve-fullscreen-toggle{display:flex;align-items:center;justify-content:center;gap:4px;width:73px;min-width:73px;height:34px;min-height:34px;padding:3px 5px;border:1px solid #94b2cb;border-radius:7px;background:#192a3be8;color:#f6fbff;font-size:11px;font-weight:800;line-height:1}
+.local-video-editor .ve-fullscreen-expand{width:18px;height:18px;flex:0 0 18px}
+.local-video-editor .ve-fullscreen-close{font-size:22px;line-height:1}
+.local-video-editor .ve-fullscreen-expand[hidden],.local-video-editor .ve-fullscreen-close[hidden]{display:none!important}
+.local-video-editor.is-preview-fullscreen .ve-fullscreen-toggle{width:73px;min-width:73px;top:12px;right:12px}
+/* Show video, audio and text rows together; only extra tracks scroll inside the timeline. */
+.local-video-editor .ve-ruler{height:19px;min-height:19px}
+.local-video-editor .ve-track-title{height:2px;min-height:2px}
+.local-video-editor .ve-video-track{height:52px;min-height:52px}
+.local-video-editor .ve-video-track button,.local-video-editor .ve-video-track button.is-reverse{height:50px;min-height:50px}
+.local-video-editor .ve-audio-track{height:33px;min-height:33px;margin:2px 0 2px}
+.local-video-editor .ve-audio-track button{top:1px;height:30px;min-height:30px}
+.local-video-editor .ve-caption-track{height:27px;min-height:27px;margin:2px 0 2px}
+.local-video-editor .ve-caption-track button{top:1px;height:24px;min-height:24px}
+.local-video-editor .ve-audio-track:empty::before{line-height:30px}
+.local-video-editor .ve-caption-track:empty::before{line-height:25px}
+.local-video-editor .ve-timeline-scroll,.local-video-editor:has(.ve-details[open]) .ve-timeline-scroll{flex:0 0 150px;height:150px;min-height:150px;max-height:150px;overflow-x:auto;overflow-y:auto}
+@media(max-height:700px){.local-video-editor .ve-timeline-scroll,.local-video-editor:has(.ve-details[open]) .ve-timeline-scroll{flex-basis:150px;height:150px;min-height:150px;max-height:150px}}
+
+/* Trim handles only belong to the actively selected video clip. */
+.local-video-editor .ve-video-track .ve-clip .ve-trim-handle{display:none}
+.local-video-editor .ve-video-track .ve-clip.is-selected .ve-trim-handle{display:block}
+
+
+.local-video-editor .ve-clip-frame.has-scene{background-size:cover;background-position:center}
