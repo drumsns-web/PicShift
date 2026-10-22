@@ -1338,3 +1338,14 @@ body .local-video-editor>.ve-timeline-cursor[hidden]{display:none;}
 body.creative-app .creative-frame-remove{min-height:40px;padding:6px 12px;border:1px solid #c97d86;border-radius:10px;background:#35242d;color:#ffdce1;cursor:pointer;}
 body.creative-app .creative-undo-remove{margin:0 0 12px;min-height:40px;padding:8px 14px;}
 .creative-undo-remove[hidden]{display:none;}
+
+/* Readable workspace labels and stable card widths on phones. */
+body.creative-app .creative-frames .creative-section-heading h2{color:#fff;font-size:22px;font-weight:750;}
+body.creative-app .creative-frames .creative-work-help{color:#dce5f4;font-size:14px;line-height:1.65;}
+body.creative-app .creative-frames .creative-section-heading small{color:#afeaf3;}
+body.creative-app .creative-frames #frame-count,body.creative-app .creative-frames .creative-layout{color:#edf4ff;font-size:14px;}
+body.creative-app .creative-frame-card{flex:0 0 140px;min-width:140px;}
+body.creative-app .creative-frame-card .creative-frame{color:#fff;}
+body.creative-app .creative-frame span{color:#fff;background:#101a30;font-size:15px;font-weight:700;}
+body.creative-app .creative-shell{touch-action:pan-x pan-y;}
+body.creative-app .creative-shell input,body.creative-app .creative-shell select{font-size:16px;}
