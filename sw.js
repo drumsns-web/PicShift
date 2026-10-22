@@ -1,4 +1,4 @@
-const CACHE='picshift-shell-v14';
+const CACHE='picshift-shell-v16';
 const SHELL=['./','index.html','manifest.webmanifest','standalone.css','pixshift-theme.css','style.css','assets/picshift-icon-192.png','assets/picshift-icon-512.png','install.js','standalone-app.js','local-materials.js','local-project.js','image-canvas.js','memo-image-editor.js','image-project.js','image-pdf.js','image-flipbook.js','image-video-editor.js','lamejs.js','image-materials.js','image-advanced.js','image-alignment.js','image-split.js','image-templates.js','image-studio-theme.js','personal-fonts.js','uploaded-fonts.js','ai-cutout.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>(key.startsWith('drum-creative-')||key.startsWith('picshift-'))&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

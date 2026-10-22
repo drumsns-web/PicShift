@@ -1288,3 +1288,46 @@ body.creative-app .local-video-editor .ve-heading .ve-save-top{background:#72e8f
 .local-video-editor.ve-compact-viewport .ve-preview,.local-video-editor.ve-compact-viewport:has(.ve-details[open]) .ve-preview{min-height:30px}
 .local-video-editor.ve-compact-viewport .ve-details[open]{max-height:72px}
 .local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-timeline-scroll,.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-timeline-tools,.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-timeline-label,.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-transport{display:none}
+
+/* Reference palette: charcoal workspace, orange text clips and white handles. */
+body .local-video-editor.local-video-editor.local-video-editor{--ve-accent:#00c3d8;--ve-ink:#f4f4f4;--ve-muted:#a0a0a0;background:#121212;color:#f4f4f4}
+body .local-video-editor.local-video-editor.local-video-editor::backdrop{background:#101010}
+body .local-video-editor.local-video-editor.local-video-editor .ve-heading,body .local-video-editor.local-video-editor.local-video-editor .ve-preview,body .local-video-editor.local-video-editor.local-video-editor .ve-transport{background:#121212;border-color:#303030}
+body .local-video-editor.local-video-editor.local-video-editor button{background:#2b2b2b;color:#f4f4f4;border-color:#555;box-shadow:none}
+body .local-video-editor.local-video-editor.local-video-editor button:hover{border-color:#bbb}
+body .local-video-editor.local-video-editor.local-video-editor .ve-heading .ve-close{background:transparent}
+body .local-video-editor.local-video-editor.local-video-editor .ve-heading .ve-undo,body .local-video-editor.local-video-editor.local-video-editor .ve-heading .ve-redo{background:#222;color:#ddd}
+body .local-video-editor.local-video-editor.local-video-editor .ve-heading .ve-save-top,body .local-video-editor.local-video-editor.local-video-editor .ve-panel .ve-export{background:#00c3d8;border-color:#00c3d8;color:#062529;box-shadow:none}
+body .local-video-editor.local-video-editor.local-video-editor .ve-transport [data-ve=play]{background:#303030;border:1px solid #aaa;color:#fff;box-shadow:none}
+body .local-video-editor.local-video-editor.local-video-editor .ve-transport [data-ve=play]:active{background:#454545}
+body .local-video-editor.local-video-editor.local-video-editor .ve-time,body .local-video-editor.local-video-editor.local-video-editor .ve-ruler span{color:#aaa}
+body .local-video-editor.local-video-editor.local-video-editor .ve-ruler span{background:#202020}
+body .local-video-editor.local-video-editor.local-video-editor .ve-timeline-scroll,body .local-video-editor.local-video-editor.local-video-editor .ve-tracks{background:#1d1d1d;border-color:#333;scrollbar-color:#666 #222}
+body .local-video-editor.local-video-editor.local-video-editor .ve-video-track,body .local-video-editor.local-video-editor.local-video-editor .ve-audio-track,body .local-video-editor.local-video-editor.local-video-editor .ve-caption-track,body .local-video-editor.local-video-editor.local-video-editor .ve-effect-track,body .local-video-editor.local-video-editor.local-video-editor .ve-overlay-track{background:#252525;border-color:#333}
+body .local-video-editor.local-video-editor.local-video-editor .ve-video-track button{background:#333;border-color:#666}
+body .local-video-editor.local-video-editor.local-video-editor .ve-caption-track button{background:#ed8000;color:#fff;border-color:#ed8000}
+body .local-video-editor.local-video-editor.local-video-editor .ve-audio-track button{background:#14545c;color:#e3fcff;border-color:#277782}
+body .local-video-editor.local-video-editor.local-video-editor .ve-audio-label{background:#123d42cf;color:#e3fcff}
+body .local-video-editor.local-video-editor.local-video-editor .ve-effect-track button,body .local-video-editor.local-video-editor.local-video-editor .ve-overlay-track button{background:#444;color:#fff;border-color:#777}
+body .local-video-editor.local-video-editor.local-video-editor .ve-video-track .is-selected,body .local-video-editor.local-video-editor.local-video-editor .ve-audio-track .is-selected,body .local-video-editor.local-video-editor.local-video-editor .ve-caption-track .is-selected,body .local-video-editor.local-video-editor.local-video-editor .ve-effect-track .is-selected,body .local-video-editor.local-video-editor.local-video-editor .ve-overlay-track .is-selected{outline-color:#fff;box-shadow:none}
+body .local-video-editor.local-video-editor.local-video-editor .ve-trim-handle,body .local-video-editor.local-video-editor.local-video-editor .ve-caption-track .ve-trim-handle{background:#fff;border-color:#fff;box-shadow:none}
+body .local-video-editor.local-video-editor.local-video-editor .ve-trim-handle::after{content:"";position:absolute;top:30%;bottom:30%;left:50%;width:2px;background:#bbb;border-radius:2px}
+body .local-video-editor.local-video-editor.local-video-editor .ve-caption-track button[data-trimming],body .local-video-editor.local-video-editor.local-video-editor .ve-clip[data-trimming]{outline-color:#fff}
+body .local-video-editor.local-video-editor.local-video-editor .ve-timeline-cursor{background:#fff;box-shadow:none}
+body .local-video-editor.local-video-editor.local-video-editor .ve-selection-indicator{background:#303030;border-color:#777;color:#eee}
+body .local-video-editor.local-video-editor.local-video-editor .ve-details,body .local-video-editor.local-video-editor.local-video-editor .ve-panel{background:#252525;border-color:#444;color:#eee}
+body .local-video-editor.local-video-editor.local-video-editor .ve-details .ve-detail-back{background:#333;border-color:#666;color:#fff}
+body .local-video-editor.local-video-editor.local-video-editor input:not([type=range]),body .local-video-editor.local-video-editor.local-video-editor select,body .local-video-editor.local-video-editor.local-video-editor textarea{background:#303030;border-color:#626262;color:#fff}
+body .local-video-editor.local-video-editor.local-video-editor input[type=range]{accent-color:#00c3d8}
+body .local-video-editor.local-video-editor.local-video-editor .ve-bottom-tools,body .local-video-editor.local-video-editor.local-video-editor .ve-text-menu,body .local-video-editor.local-video-editor.local-video-editor .ve-text-entry,body .local-video-editor.local-video-editor.local-video-editor .ve-text-options,body .local-video-editor.local-video-editor.local-video-editor .ve-video-menu,body .local-video-editor.local-video-editor.local-video-editor .ve-audio-menu,body .local-video-editor.local-video-editor.local-video-editor .ve-effects-menu,body .local-video-editor.local-video-editor.local-video-editor .ve-materials-menu,body .local-video-editor.local-video-editor.local-video-editor .ve-output-menu{background:#252525;border-color:#383838}
+body .local-video-editor.local-video-editor.local-video-editor .ve-bottom-tools button,body .local-video-editor.local-video-editor.local-video-editor .ve-text-menu button,body .local-video-editor.local-video-editor.local-video-editor .ve-text-options button,body .local-video-editor.local-video-editor.local-video-editor .ve-video-menu button,body .local-video-editor.local-video-editor.local-video-editor .ve-audio-menu button,body .local-video-editor.local-video-editor.local-video-editor .ve-effects-menu button,body .local-video-editor.local-video-editor.local-video-editor .ve-materials-menu button,body .local-video-editor.local-video-editor.local-video-editor .ve-output-menu button{background:#303030;color:#eee;border-color:transparent}
+body .local-video-editor.local-video-editor.local-video-editor .ve-bottom-tools button[aria-pressed=true],body .local-video-editor.local-video-editor.local-video-editor .ve-video-menu button[aria-pressed=true],body .local-video-editor.local-video-editor.local-video-editor .ve-audio-menu button[aria-pressed=true]{background:#383838;color:#00d7e9}
+body .local-video-editor.local-video-editor.local-video-editor .ve-fullscreen-toggle,body .local-video-editor.local-video-editor.local-video-editor .ve-preview-space,body .local-video-editor.local-video-editor.local-video-editor .ve-video-pinch{background:#222e;border-color:#666;color:#fff}
+body .local-video-editor.local-video-editor.local-video-editor .ve-video-pinch[aria-pressed=true]{background:#00c3d8;border-color:#00c3d8;color:#062529}
+body .local-video-editor.local-video-editor.local-video-editor .ve-text-entry button{background:#00c3d8;color:#062529}
+body .local-video-editor.local-video-editor.local-video-editor .ve-status{color:#ccc}
+
+/* A fixed center playhead; leading/trailing space lets every frame reach it. */
+body .local-video-editor .ve-timeline-scroll .ve-tracks{box-sizing:content-box;min-width:0;}
+body .local-video-editor>.ve-timeline-cursor{position:absolute;bottom:auto;transform:none;z-index:8;width:2px;background:#fff;pointer-events:none;box-shadow:none;}
+body .local-video-editor>.ve-timeline-cursor[hidden]{display:none;}
