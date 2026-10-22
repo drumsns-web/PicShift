@@ -1269,3 +1269,22 @@ body.creative-app .local-video-editor .ve-heading .ve-save-top{background:#72e8f
 /* Keep fullscreen edit controls apart. */
 .local-video-editor.is-preview-fullscreen .ve-preview-space{display:none}
 .local-video-editor.is-preview-fullscreen .ve-video-pinch{left:12px;right:auto}
+
+/* Fit Safari's visible area and keep editing controls above browser bars. */
+.local-video-editor{inset:auto;left:var(--ve-viewport-left,0px);top:var(--ve-viewport-top,0px);width:var(--ve-viewport-width,100vw);height:var(--ve-viewport-height,100dvh);max-height:var(--ve-viewport-height,100dvh);max-width:var(--ve-viewport-width,100vw);min-width:0;overflow:hidden;touch-action:pan-x pan-y}
+.local-video-editor .ve-heading,.local-video-editor .ve-transport,.local-video-editor .ve-timeline-tools,.local-video-editor .ve-timeline-label{min-width:0}
+.local-video-editor .ve-bottom-tools,.local-video-editor .ve-text-menu,.local-video-editor .ve-text-options,.local-video-editor .ve-video-menu,.local-video-editor .ve-audio-menu,.local-video-editor .ve-effects-menu,.local-video-editor .ve-materials-menu,.local-video-editor .ve-output-menu{flex-shrink:0;touch-action:pan-x;min-width:0}
+.local-video-editor input:not([type=range]),.local-video-editor textarea,.local-video-editor select{font-size:16px}
+.local-video-editor .ve-decoder{position:absolute;left:0;top:0;width:2px;height:2px;opacity:.001;pointer-events:none}
+.local-video-editor.is-frame-loading .ve-preview::after{content:"映像を読み込み中…";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:8px 12px;background:#16202be8;border-radius:8px;color:#fff;font-size:12px;pointer-events:none}
+.local-video-editor.is-preview-fullscreen .ve-preview{inset:auto;left:var(--ve-viewport-left,0px);top:var(--ve-viewport-top,0px);width:var(--ve-viewport-width,100vw);height:var(--ve-viewport-height,100dvh)}
+.local-video-editor.is-preview-fullscreen .ve-preview canvas{max-height:calc(var(--ve-viewport-height,100dvh) - 70px)}
+.local-video-editor.is-preview-fullscreen .ve-transport{left:var(--ve-viewport-left,0px);right:auto;width:var(--ve-viewport-width,100vw);top:calc(var(--ve-viewport-top,0px) + var(--ve-viewport-height,100dvh) - 65px);bottom:auto}
+@media(max-height:580px){.local-video-editor .ve-preview,.local-video-editor:has(.ve-details[open]) .ve-preview{min-height:40px}.local-video-editor .ve-details[open]{max-height:85px}}
+
+.local-video-editor .ve-caption-track button{text-align:left}
+.local-video-editor .ve-caption-label{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none;line-height:36px}
+
+.local-video-editor.ve-compact-viewport .ve-preview,.local-video-editor.ve-compact-viewport:has(.ve-details[open]) .ve-preview{min-height:30px}
+.local-video-editor.ve-compact-viewport .ve-details[open]{max-height:72px}
+.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-timeline-scroll,.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-timeline-tools,.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-timeline-label,.local-video-editor.ve-compact-viewport[data-text-stage=entry] .ve-transport{display:none}
