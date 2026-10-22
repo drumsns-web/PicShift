@@ -1331,3 +1331,10 @@ body .local-video-editor.local-video-editor.local-video-editor .ve-status{color:
 body .local-video-editor .ve-timeline-scroll .ve-tracks{box-sizing:content-box;min-width:0;}
 body .local-video-editor>.ve-timeline-cursor{position:absolute;bottom:auto;transform:none;z-index:8;width:2px;background:#fff;pointer-events:none;box-shadow:none;}
 body .local-video-editor>.ve-timeline-cursor[hidden]{display:none;}
+
+/* Workspace cards have a separate, touch-friendly delete action. */
+.creative-frame-card{display:flex;flex-direction:column;gap:6px;min-width:0;}
+.creative-frame-card .creative-frame{width:100%;flex:1;}
+body.creative-app .creative-frame-remove{min-height:40px;padding:6px 12px;border:1px solid #c97d86;border-radius:10px;background:#35242d;color:#ffdce1;cursor:pointer;}
+body.creative-app .creative-undo-remove{margin:0 0 12px;min-height:40px;padding:8px 14px;}
+.creative-undo-remove[hidden]{display:none;}
