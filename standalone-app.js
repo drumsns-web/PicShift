@@ -39,8 +39,32 @@ async function duplicate(){const source=current();if(!source)return;let session=
 async function save(blob,name){const file=new File([blob],name,{type:blob.type});if(navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:name});return;}catch(error){if(error.name==='AbortError')return;}}const url=URL.createObjectURL(blob),anchor=document.createElement('a');anchor.href=url;anchor.download=name;document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
 async function exportPdf(){if(!frames.length)return;const layout=document.querySelector('#creative-pdf-layout').value;message('A4 PDFを作成しています…');const pages=[];try{for(const frame of frames){const bitmap=await createImageBitmap(frame.blob);try{const ratio=Math.min(1,2400/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bitmap.width*ratio));canvas.height=Math.max(1,Math.round(bitmap.height*ratio));const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);const jpeg=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.9));if(!jpeg)throw Error('PDF用の画像を作れませんでした。');pages.push({width:canvas.width,height:canvas.height,jpeg});}finally{bitmap.close();}}const pdf=await buildImagePdf(pages,layout);await save(pdf,`picshift-${Date.now()}.pdf`);message(`${frames.length}コマをA4 PDFに保存しました。`);}catch(error){message(error.message||'PDFを作成できませんでした。');}}
 document.querySelector('#frame-list').onclick=event=>{const remove=event.target.closest('[data-remove-frame]');if(remove){removeFrame(Number(remove.dataset.removeFrame));return;}const card=event.target.closest('[data-frame]');if(!card)return;selected=Number(card.dataset.frame);render();};
-document.addEventListener('click',async event=>{const action=event.target.closest('[data-action]')?.dataset.action;if(!action||busy)return;await ready;try{if(action==='canvas'){const canvas=await chooseBlankCanvas();if(!canvas)return;const frame=addFrame(canvas.blob);await editFrame(frame);}else if(action==='image')imageInput.click();else if(action==='video')videoInput.click();else if(action==='draft'){const row=await loadImageDraft('drum-creative-local');if(!row){message('この端末に下書きはありません。');return;}const session=await importImageProject(row.project),frame=addFrame(row.preview,session,row.preview);await editFrame(frame);}else if(action==='duplicate')await duplicate();else if(action==='edit')await editFrame(current());else if(action==='play'){await openFlipbook(frames);await persist();}else if(action==='pdf')await exportPdf();else if(action==='save-image'){const frame=current();if(frame){await save(frame.blob,`picshift-${Date.now()}.${frame.blob.type==='image/png'?'png':'jpg'}`);message('画像を端末に保存しました。');}}}catch(error){message(error.message||'操作できませんでした。');}});
+document.addEventListener('click',async event=>{const action=event.target.closest('[data-action]')?.dataset.action;if(!action||busy)return;await ready;try{if(action==='update-app'){await updateApplication();}else if(action==='remove-frame'){removeFrame(selected);}else if(action==='canvas'){const canvas=await chooseBlankCanvas();if(!canvas)return;const frame=addFrame(canvas.blob);await editFrame(frame);}else if(action==='image')imageInput.click();else if(action==='video')videoInput.click();else if(action==='draft'){const row=await loadImageDraft('drum-creative-local');if(!row){message('この端末に下書きはありません。');return;}const session=await importImageProject(row.project),frame=addFrame(row.preview,session,row.preview);await editFrame(frame);}else if(action==='duplicate')await duplicate();else if(action==='edit')await editFrame(current());else if(action==='play'){await openFlipbook(frames);await persist();}else if(action==='pdf')await exportPdf();else if(action==='save-image'){const frame=current();if(frame){await save(frame.blob,`picshift-${Date.now()}.${frame.blob.type==='image/png'?'png':'jpg'}`);message('画像を端末に保存しました。');}}}catch(error){message(error.message||'操作できませんでした。');}});
 imageInput.onchange=async()=>{const file=imageInput.files?.[0];imageInput.value='';if(file)await addImage(file);};
 videoInput.onchange=async()=>{const file=videoInput.files?.[0];videoInput.value='';if(!file)return;try{await openVideoEditor(file,{materialLibrary:localMaterials});}catch(error){message(error.message||'動画を開けませんでした。');}};
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 render();
+
+async function updateApplication(){
+ const button=document.querySelector('[data-action="update-app"]');if(button.disabled)return;
+ button.disabled=true;message('最新版を確認しています…');
+ try{
+  await saveQueue;
+  const url=new URL('./index.html',location.href);url.searchParams.set('update',Date.now());
+  const response=await fetch(url,{cache:'no-store'});
+  if(!response.ok)throw Error('公開中のページを取得できませんでした。');
+  const html=await response.text();if(!html.includes('standalone-app.js'))throw Error('更新用のページを確認できませんでした。');
+  const registration=await navigator.serviceWorker?.getRegistration();
+  if(registration){
+   await registration.update();const worker=registration.installing||registration.waiting;
+   if(worker&&worker.state!=='activated')await new Promise((resolve,reject)=>{
+    const timer=setTimeout(()=>{worker.removeEventListener('statechange',changed);reject(Error('更新の準備に時間がかかっています。少し待ってからもう一度お試しください。'));},30000);
+    function changed(){if(worker.state==='activated'||worker.state==='redundant'){clearTimeout(timer);worker.removeEventListener('statechange',changed);worker.state==='activated'?resolve():reject(Error('更新ファイルを取得できませんでした。'));}}
+    worker.addEventListener('statechange',changed);changed();
+   });
+  }
+  // Clear only this app's shell cache. IndexedDB projects and materials remain intact.
+  if('caches' in window)for(const key of await caches.keys())if(key.startsWith('picshift-shell-'))await caches.delete(key);
+  location.replace(url.href);
+ }catch(error){message('更新できませんでした。'+(error.message||'通信状態を確認して再度お試しください。'));button.disabled=false;}
+}

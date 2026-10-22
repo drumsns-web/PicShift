@@ -9,17 +9,17 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" href="assets/picshift-icon-192.png">
   <link rel="apple-touch-icon" href="assets/picshift-icon-180.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261022-13">
   <link rel="stylesheet" href="standalone.css">
   <link rel="stylesheet" href="pixshift-theme.css">
   <script defer src="install.js"></script>
-  <script type="module" src="standalone-app.js"></script>
+  <script type="module" src="standalone-app.js?v=20261022-13"></script>
 </head>
 <body class="creative-app">
   <main class="creative-shell">
     <header class="creative-header">
       <div class="creative-brand"><img src="assets/picshift-icon-192.png" alt="" width="64" height="64"><div><small>PICSHIFT · IMAGE &amp; VIDEO</small><h1>ピクシフト</h1></div></div>
-      <div class="creative-header-actions"><span class="creative-local">端末内で編集・保存</span><button id="creative-install" type="button">↓ アプリをインストール</button></div>
+      <div class="creative-header-actions"><span class="creative-local">端末内で編集・保存</span><button type="button" data-action="update-app">↻ 更新を確認</button><button id="creative-install" type="button">↓ アプリをインストール</button></div>
     </header>
     <section class="creative-start" aria-labelledby="creative-start-title">
       <div class="creative-intro"><span class="creative-eyebrow">CREATE YOUR WAY</span><h2 id="creative-start-title">画像も動画も、思いどおりに。</h2><p>写真の加工、白紙からの制作、動画の編集まで。作りたいものから始めましょう。</p></div>
@@ -38,6 +38,7 @@
       <div id="frame-list" class="creative-frame-list"></div>
       <div class="creative-frame-actions">
         <button type="button" data-action="edit" disabled>選択中の画像を編集</button>
+        <button type="button" data-action="remove-frame" disabled>選択中の作品を削除</button>
         <button type="button" data-action="duplicate" disabled>ページを複製</button>
         <button type="button" data-action="play" disabled>▶ タイムライン</button>
         <label class="creative-layout">A4の配置<select id="creative-pdf-layout"><option value="single">1面</option><option value="twoVertical">上下2分割</option><option value="twoHorizontal">左右2分割</option><option value="four">4分割</option><option value="six">6分割</option></select></label>
@@ -46,7 +47,7 @@
       </div>
     </section>
     <p id="creative-status" role="status" aria-live="polite"></p>
-    <footer><span>PicShift · 2026年制作</span><span>作品・録音・追加した素材は、この端末内で扱います。</span></footer>
+    <footer><span>© 2026 PicShift · Version 20261022-13</span><span>作品・録音・追加した素材は、この端末内で扱います。</span></footer>
   </main>
   <dialog id="creative-install-guide" aria-labelledby="creative-install-title">
     <h2 id="creative-install-title">ピクシフトをインストール</h2>
