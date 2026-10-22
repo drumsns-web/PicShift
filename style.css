@@ -1238,3 +1238,34 @@ body.creative-app .local-video-editor .ve-heading .ve-save-top{background:#72e8f
 
 
 .local-video-editor .ve-clip-frame.has-scene{background-size:cover;background-position:center}
+
+/* Prevent browser page zoom inside the editor while keeping canvas gestures available. */
+.local-video-editor{touch-action:pan-x pan-y}
+.local-video-editor .ve-preview canvas{touch-action:none}
+.local-video-editor .ve-preview-space,.local-video-editor .ve-video-pinch{position:absolute;z-index:2;bottom:8px;min-height:32px;padding:3px 7px;border:1px solid #9ceaf2;border-radius:8px;background:#101820e6;color:#fff;font-size:11px;font-weight:800;white-space:nowrap}
+.local-video-editor .ve-preview-space{left:90px}
+.local-video-editor .ve-video-pinch{right:8px}
+.local-video-editor .ve-video-pinch[aria-pressed=true]{background:#36cedd;color:#09262b}
+.local-video-editor.is-preview-large .ve-timeline-scroll,.local-video-editor.is-preview-large:has(.ve-details[open]) .ve-timeline-scroll{flex:0 0 105px;height:105px;min-height:105px;max-height:105px}
+.local-video-editor.is-preview-large .ve-audio-track,.local-video-editor.is-preview-large .ve-effect-track,.local-video-editor.is-preview-large .ve-overlay-track{display:none}
+.local-video-editor.is-preview-fullscreen .ve-preview-space,.local-video-editor.is-preview-fullscreen .ve-video-pinch{top:12px;bottom:auto}
+
+/* Larger caption lane with direct start/end handles. */
+.local-video-editor .ve-video-track{height:44px;min-height:44px}
+.local-video-editor .ve-video-track button,.local-video-editor .ve-video-track button.is-reverse{height:42px;min-height:42px}
+.local-video-editor .ve-audio-track{height:29px;min-height:29px;margin:1px 0}
+.local-video-editor .ve-audio-track button{height:27px;min-height:27px}
+.local-video-editor .ve-caption-track{height:43px;min-height:43px;margin:2px 0}
+.local-video-editor .ve-caption-track button{top:1px;height:40px;min-height:40px;padding:1px 22px;font-size:13px;font-weight:800}
+.local-video-editor .ve-caption-track .ve-trim-handle{display:block;width:20px;background:#d5a8ffb9;border-color:#fff}
+.local-video-editor .ve-caption-track button[data-trimming]{outline:2px solid #d5a8ff}
+.local-video-editor .ve-timeline-scroll .ve-tracks{padding:2px 4px}
+.local-video-editor .ve-video-track{height:42px;min-height:42px}
+.local-video-editor .ve-video-track button,.local-video-editor .ve-video-track button.is-reverse{height:40px;min-height:40px}
+.local-video-editor .ve-audio-track{height:27px;min-height:27px}
+.local-video-editor .ve-audio-track button{height:25px;min-height:25px}
+.local-video-editor.is-preview-large .ve-timeline-scroll,.local-video-editor.is-preview-large:has(.ve-details[open]) .ve-timeline-scroll{flex-basis:120px;height:120px;min-height:120px;max-height:120px}
+
+/* Keep fullscreen edit controls apart. */
+.local-video-editor.is-preview-fullscreen .ve-preview-space{display:none}
+.local-video-editor.is-preview-fullscreen .ve-video-pinch{left:12px;right:auto}
