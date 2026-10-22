@@ -1357,3 +1357,7 @@ body .local-video-editor .ve-preview canvas{position:relative;z-index:1;backgrou
 /* Timeline magnification is controlled by pinch, not a separate slider. */
 body .local-video-editor .ve-zoom-control>button,body .local-video-editor .ve-zoom-control>label:not(.ve-fps-label){display:none;}
 body .local-video-editor .ve-zoom-control{justify-content:flex-end;}
+
+body .local-video-editor .ve-playback-notice{position:absolute;z-index:12;left:8px;right:8px;bottom:42px;padding:12px;background:#282020f5;color:#fff;border:1px solid #e59b9b;border-radius:10px;font-size:13px;line-height:1.5;display:grid;gap:8px;}
+body .local-video-editor .ve-playback-notice[hidden]{display:none;}
+body .local-video-editor .ve-playback-notice small{overflow-wrap:anywhere;color:#ffe0e0;}
