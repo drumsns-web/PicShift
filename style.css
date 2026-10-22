@@ -1363,3 +1363,5 @@ body .local-video-editor .ve-playback-notice[hidden]{display:none;}
 body .local-video-editor .ve-playback-notice small{overflow-wrap:anywhere;color:#ffe0e0;}
 
 body .local-video-editor.ve-native-preview .ve-preview canvas{background:transparent;}
+
+body .local-video-editor .ve-timeline-scroll{scroll-behavior:auto;overflow-anchor:none;}
