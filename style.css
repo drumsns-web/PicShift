@@ -1349,3 +1349,11 @@ body.creative-app .creative-frame-card .creative-frame{color:#fff;}
 body.creative-app .creative-frame span{color:#fff;background:#101a30;font-size:15px;font-weight:700;}
 body.creative-app .creative-shell{touch-action:pan-x pan-y;}
 body.creative-app .creative-shell input,body.creative-app .creative-shell select{font-size:16px;}
+
+/* Keep the decoder in the visible preview area for mobile video compositing. */
+body .local-video-editor .ve-preview .ve-decoder{position:absolute;inset:0;width:100%;height:100%;opacity:1;object-fit:contain;pointer-events:none;z-index:0;}
+body .local-video-editor .ve-preview canvas{position:relative;z-index:1;background:#000;}
+
+/* Timeline magnification is controlled by pinch, not a separate slider. */
+body .local-video-editor .ve-zoom-control>button,body .local-video-editor .ve-zoom-control>label:not(.ve-fps-label){display:none;}
+body .local-video-editor .ve-zoom-control{justify-content:flex-end;}
