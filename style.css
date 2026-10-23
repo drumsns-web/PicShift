@@ -1377,3 +1377,6 @@ body .local-video-editor .ve-timeline-scroll{scroll-behavior:auto;overflow-ancho
 .local-video-editor .ve-extra-fields input[type="checkbox"]{width:22px;height:22px}
 
 .local-video-editor .ve-transport [data-ve="frame-prev"],.local-video-editor .ve-transport [data-ve="frame-next"]{white-space:nowrap;font-size:11px;padding-inline:4px;min-width:42px}
+
+/* Preserve the full frame; repeat small scenes instead of magnifying at high zoom. */
+body .local-video-editor .ve-clip-frame.has-scene{background-size:contain;background-repeat:repeat-x;background-position:left center;image-rendering:auto;background-color:#141414}
