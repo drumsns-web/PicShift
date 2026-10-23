@@ -1393,3 +1393,57 @@ body .local-video-editor .ve-object-tools button span{font-size:9px;line-height:
 body .local-video-editor .ve-object-tools button[data-object=delete]{background:#bd303e}
 body .local-video-editor .ve-object-tools svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu){margin-bottom:0}
+
+/* Give the footage the space previously occupied by separate utility rows. */
+body .local-video-editor.local-video-editor .ve-heading{height:50px;min-height:50px;flex:0 0 50px;box-sizing:border-box;padding:3px 8px;margin-bottom:0;flex-wrap:nowrap;gap:4px}
+body .local-video-editor.local-video-editor .ve-heading button{min-height:38px;height:38px;padding:3px 8px}
+body .local-video-editor.local-video-editor .ve-heading .ve-close{font-size:13px;width:46px;min-width:46px;padding:2px}
+body .local-video-editor.local-video-editor .ve-heading strong{font-size:12px;letter-spacing:0}
+body .local-video-editor.local-video-editor .ve-timeline-tools{display:none}
+body .local-video-editor.local-video-editor .ve-timeline-label{height:30px;min-height:30px;flex:0 0 30px;gap:5px;margin:0;overflow:hidden}
+body .local-video-editor .ve-timeline-label>span:first-child{display:none}
+body .local-video-editor .ve-timeline-label .ve-fps-label{display:flex;align-items:center;gap:2px;flex:0 0 auto;font-size:10px;white-space:nowrap;margin:0}
+body .local-video-editor .ve-timeline-label .ve-ruler-fps{font-size:12px;min-height:28px;height:28px;width:66px;padding:1px 2px}
+body .local-video-editor .ve-timeline-label .ve-selection-indicator{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;max-width:108px}
+body .local-video-editor .ve-timeline-label .ve-snap-toggle{margin-left:auto;font-size:9px}
+body .local-video-editor.local-video-editor:not(.is-preview-large) .ve-timeline-scroll{height:136px;flex:0 0 136px;min-height:136px;max-height:136px}
+body .local-video-editor.local-video-editor .ve-status:empty{display:none}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu){min-height:68px;flex-basis:68px;padding-top:4px;padding-bottom:4px;box-sizing:border-box}
+body .local-video-editor.local-video-editor .ve-details[open]{height:80px;max-height:80px;min-height:0;flex:0 0 80px}
+body .local-video-editor.local-video-editor .ve-details[open] .ve-panel{overflow-y:auto}
+@media(max-height:580px){body .local-video-editor.local-video-editor .ve-details[open]{height:66px;max-height:66px;flex-basis:66px}}
+body .local-video-editor .ve-timeline-label>span{display:none}
+
+body .local-video-editor .ve-record-countdown{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#0009;color:#fff;font-size:18px}
+body .local-video-editor .ve-record-countdown[hidden]{display:none}
+body .local-video-editor .ve-record-countdown strong{font-size:80px;line-height:1}
+body .local-video-editor .ve-record-countdown button{min-height:44px;padding:8px 20px}
+body .local-video-editor .ve-record-badge{display:none;position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:15;background:#be1830;color:white;padding:8px 14px;border-radius:20px;font-size:16px;font-weight:800;white-space:nowrap}
+body .local-video-editor.is-mic-recording .ve-record-badge{display:block}
+body .local-video-editor.is-mic-recording .ve-preview{outline:3px solid #ed4055;outline-offset:-3px}
+body .local-video-editor.local-video-editor .ve-recording-bar:not([hidden]){background:#681525;color:#fff;min-height:48px;flex-shrink:0}
+body .local-video-editor .ve-recording-bar [data-ve=mic-stop]{background:#e4314c;color:white;font-weight:800;min-height:44px}
+
+body .local-video-editor .ve-resize-frame{position:absolute;z-index:4;border:1.5px solid #66ddff;box-sizing:border-box;pointer-events:none;transform-origin:center}
+body .local-video-editor .ve-resize-frame[hidden]{display:none}
+body .local-video-editor.local-video-editor .ve-resize-frame button{position:absolute;width:26px;height:26px;min-width:26px;min-height:26px;border:0;background:transparent;padding:0;pointer-events:auto;touch-action:none;transform:translate(-50%,-50%);border-radius:0}
+body .local-video-editor .ve-resize-frame button::after{content:'';position:absolute;inset:8px;background:white;border:1.5px solid #2688d8;border-radius:2px}
+body .local-video-editor .ve-resize-frame [data-edge=nw]{left:0;top:0;cursor:nwse-resize}
+body .local-video-editor .ve-resize-frame [data-edge=n]{left:50%;top:0;cursor:ns-resize}
+body .local-video-editor .ve-resize-frame [data-edge=ne]{left:100%;top:0;cursor:nesw-resize}
+body .local-video-editor .ve-resize-frame [data-edge=e]{left:100%;top:50%;cursor:ew-resize}
+body .local-video-editor .ve-resize-frame [data-edge=se]{left:100%;top:100%;cursor:nwse-resize}
+body .local-video-editor .ve-resize-frame [data-edge=s]{left:50%;top:100%;cursor:ns-resize}
+body .local-video-editor .ve-resize-frame [data-edge=sw]{left:0;top:100%;cursor:nesw-resize}
+body .local-video-editor .ve-resize-frame [data-edge=w]{left:0;top:50%;cursor:ew-resize}
+body .local-video-editor.is-mic-recording :is(.ve-resize-frame,.ve-object-tools){display:none}
+
+body .local-video-editor .ve-resize-frame [data-edge=e]{left:calc(100% + 14px)}
+body .local-video-editor .ve-resize-frame [data-edge=w]{left:-14px}
+body .local-video-editor .ve-resize-frame [data-edge=n]{top:-14px}
+body .local-video-editor .ve-resize-frame [data-edge=s]{top:calc(100% + 14px)}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu){min-height:56px;flex-basis:56px;gap:4px;padding:4px 8px}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu) button{min-width:62px;min-height:46px;height:46px;padding:2px 6px;font-size:20px;gap:1px}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu) button span{font-size:11px}
+body .local-video-editor .ve-tool-hint{position:absolute;z-index:70;max-width:240px;box-sizing:border-box;padding:10px 12px;border:1px solid #777;border-radius:8px;background:#333;color:#fff;font-size:13px;line-height:1.5;pointer-events:none;box-shadow:0 2px 8px #0008}
+body .local-video-editor .ve-tool-hint[hidden]{display:none}
