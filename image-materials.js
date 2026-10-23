@@ -200,23 +200,23 @@ function removeNeighborFragments(canvas,mainOnly=false){
   for(let pos=0;pos<size;pos++)if(remove[labels[pos]])data[pos*4+3]=0;
   context.putImageData(image,0,0);
 }
-function trimTransparent(canvas){
+function trimTransparent(canvas,padding=.01){
   const {width,height}=canvas,data=canvas.getContext('2d',{willReadFrequently:true}).getImageData(0,0,canvas.width,canvas.height),pixels=data.data;
   let left=width,top=height,right=-1,bottom=-1;
   for(let y=0;y<height;y++)for(let x=0;x<width;x++)if(pixels[(y*width+x)*4+3]>5){left=Math.min(left,x);top=Math.min(top,y);right=Math.max(right,x);bottom=Math.max(bottom,y);}
   if(right<left)throw Error('この素材の絵柄が見つかりませんでした。');
-  const margin=Math.max(2,Math.ceil(Math.max(width,height)*.01));left=Math.max(0,left-margin);top=Math.max(0,top-margin);right=Math.min(width-1,right+margin);bottom=Math.min(height-1,bottom+margin);
+  const margin=Math.max(2,Math.ceil(Math.max(width,height)*padding));left=Math.max(0,left-margin);top=Math.max(0,top-margin);right=Math.min(width-1,right+margin);bottom=Math.min(height-1,bottom+margin);
   const trimmed=document.createElement('canvas');trimmed.width=right-left+1;trimmed.height=bottom-top+1;trimmed.getContext('2d').drawImage(canvas,left,top,trimmed.width,trimmed.height,0,0,trimmed.width,trimmed.height);return trimmed;
 }
 export async function materialPreview(material,canvas){
   if(previewCache.has(material.id)){canvas.getContext('2d').drawImage(previewCache.get(material.id),0,0,canvas.width,canvas.height);return;}
-  const crop=trimTransparent(cropCanvas(await sheetImage(material.sheet),material,240));
+  const crop=trimTransparent(cropCanvas(await sheetImage(material.sheet),material,240),material.sheet==='selectedBubbles'?.035:.01);
   const context=canvas.getContext('2d');context.clearRect(0,0,canvas.width,canvas.height);
   const scale=Math.min((canvas.width-12)/crop.width,(canvas.height-12)/crop.height);
   context.drawImage(crop,(canvas.width-crop.width*scale)/2,(canvas.height-crop.height*scale)/2,crop.width*scale,crop.height*scale);
   const preview=document.createElement('canvas');preview.width=canvas.width;preview.height=canvas.height;preview.getContext('2d').drawImage(canvas,0,0);previewCache.set(material.id,preview);
 }
 export async function materialBitmap(material){
-  const crop=trimTransparent(cropCanvas(await sheetImage(material.sheet),material,1800));
+  const crop=trimTransparent(cropCanvas(await sheetImage(material.sheet),material,1800),material.sheet==='selectedBubbles'?.035:.01);
   return createImageBitmap(crop);
 }
