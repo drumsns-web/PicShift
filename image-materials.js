@@ -1,6 +1,7 @@
 // Built-in material sheets are shared with every editor user.
 // Sheet coordinates use a common 1824 x 1368 preview grid unless size is specified.
 export const materialSheets={
+  selectedBubbles:{group:'吹き出し',filename:'selected-bubbles-13-22.jpg',asset:'assets/selected-bubbles-13-22.jpg',size:[1824,1361]},
   inkBrush:{group:'墨ブラシ',filename:'ink-strokes-950536.png',asset:'assets/ink-strokes-950536.png',size:[1601,1201]},
   outline:{group:'吹き出し',filename:'27682106.png',asset:'assets/speech-bubbles-outline-27682106.png'},
   shadow:{group:'影つき',filename:'27682272.png',asset:'assets/speech-bubbles-shadow-27682272.png'},
@@ -32,7 +33,7 @@ const soundCropBounds={
   '7-2':[556,626],'7-3':[556,627],'7-4':[547,625],'7-6':[556,625],
   '8-2':[635,713],'8-3':[636,713],'8-4':[631,713],'8-6':[637,713]
 };
-export const imageMaterials=[
+const legacyMaterials=[
   ...inkBrushRects.map(([x,y,w,h],index)=>item('ink-brush-'+(index+1),'筆跡 '+String(index+1).padStart(2,'0'),'墨ブラシ','inkBrush',x,y,w,h)),
   item('outline-cloud','もくもく','吹き出し','outline',80,60,404,264),
   item('outline-thought','考えごと','吹き出し','outline',500,52,393,257),
@@ -137,6 +138,8 @@ export const imageMaterials=[
   ...Array.from({length:6},(_,index)=>item(`speed-six-${index+1}`,`集中線 ${String(index+1).padStart(2,'0')}`,'集中線','speedSix',10+(index%3)*210,9+Math.floor(index/3)*176,198,165)),
   ...Array.from({length:20},(_,index)=>item(`speed-twenty-${index+1}`,`集中線 ${String(index+7).padStart(2,'0')}`,'集中線・追加','speedTwenty',10+(index%5)*126,9+Math.floor(index/5)*88,115,77))
 ];
+
+export const imageMaterials=[...Array.from({length:10},(_,i)=>{const xs=[0,475,945,1410,1824],ys=[0,465,890,1361],col=i%4,row=Math.floor(i/4),names=['ギザギザ','強調','ゆらぎ・考えごと','角丸・右しっぽ','もくもく・左しっぽ','雲・考えごと','ハート','花・考えごと','丸・左しっぽ','多角形'];return item('selected-bubble-'+(i+13),'吹き出し '+(i+13)+'・'+names[i],'吹き出し','selectedBubbles',xs[col],ys[row],xs[col+1]-xs[col],ys[row+1]-ys[row]);}),...legacyMaterials.filter(m=>!['outline','shadow','comic','handdrawn'].includes(m.sheet))];
 let loadedSheet=null,loadedName='',pendingSheet=null,databasePromise;
 const previewCache=new Map();
 function materialDatabase(){
@@ -165,10 +168,22 @@ function cropCanvas(image,material,maxSize=0){
   const scale=maxSize?Math.min(1,maxSize/Math.max(sourceW,sourceH)):1;
   const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(sourceW*scale));canvas.height=Math.max(1,Math.round(sourceH*scale));
   const context=canvas.getContext('2d',{willReadFrequently:true});context.drawImage(image,sourceX,sourceY,sourceW,sourceH,0,0,canvas.width,canvas.height);
+  if(material.sheet==='selectedBubbles')clearBubblePaper(canvas);
   if(materialSheets[material.sheet].whiteToAlpha){const pixels=context.getImageData(0,0,canvas.width,canvas.height);for(let i=0;i<pixels.data.length;i+=4){const darkness=255-Math.min(pixels.data[i],pixels.data[i+1],pixels.data[i+2]);pixels.data[i+3]=Math.max(0,Math.min(255,Math.round((darkness-9)*1.35)));}context.putImageData(pixels,0,0);}
   if(['outline','shadow','comic','handdrawn'].includes(material.sheet))removeNeighborFragments(canvas,material.sheet==='comic'&&!material.id.includes('thought'));
   return canvas;
 }
+
+// Remove only edge-connected paper; enclosed bubble interiors remain opaque.
+function clearBubblePaper(canvas){
+ const ctx=canvas.getContext('2d',{willReadFrequently:true}),im=ctx.getImageData(0,0,canvas.width,canvas.height),d=im.data,w=canvas.width,h=canvas.height,n=w*h,seen=new Uint8Array(n),q=new Uint32Array(n);let head=0,tail=0;
+ const visit=p=>{if(seen[p]||Math.min(d[p*4],d[p*4+1],d[p*4+2])<170)return;seen[p]=1;q[tail++]=p;};
+ for(let x=0;x<w;x++){visit(x);visit((h-1)*w+x);}for(let y=0;y<h;y++){visit(y*w);visit(y*w+w-1);}
+ while(head<tail){const p=q[head++],x=p%w; if(x)visit(p-1);if(x<w-1)visit(p+1);if(p>=w)visit(p-w);if(p<n-w)visit(p+w);}
+ for(let p=0;p<n;p++){const i=p*4;if(seen[p])d[i+3]=0;else {const value=Math.min(d[i],d[i+1],d[i+2]);d[i]=d[i+1]=d[i+2]=value>235?255:Math.max(0,Math.round((value-20)*255/215));}}
+ ctx.putImageData(im,0,0);
+}
+
 function removeNeighborFragments(canvas,mainOnly=false){
   const {width,height}=canvas,context=canvas.getContext('2d',{willReadFrequently:true}),image=context.getImageData(0,0,width,height),data=image.data,size=width*height,labels=new Uint32Array(size),queue=new Uint32Array(size),components=[null];
   let largest=0;

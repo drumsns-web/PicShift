@@ -1365,3 +1365,15 @@ body .local-video-editor .ve-playback-notice small{overflow-wrap:anywhere;color:
 body .local-video-editor.ve-native-preview .ve-preview canvas{background:transparent;}
 
 body .local-video-editor .ve-timeline-scroll{scroll-behavior:auto;overflow-anchor:none;}
+
+/* Compact, isolated advanced tools; preview and tracks retain their space. */
+.local-video-editor .ve-extra-panel{display:none!important}
+.local-video-editor .ve-details[data-mode="extra"]>.ve-panel,.local-video-editor .ve-details[data-mode="extra"]>.ve-output-options{display:none!important}
+.local-video-editor .ve-details[data-mode="extra"]>.ve-extra-panel{display:block!important;max-height:150px;overflow:auto}
+.local-video-editor .ve-extra-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.local-video-editor .ve-extra-fields label{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:12px;min-width:0}
+.local-video-editor .ve-extra-fields input[type="range"]{width:100%;min-width:0}
+.local-video-editor .ve-extra-fields input[type="color"]{width:42px;height:30px;padding:2px}
+.local-video-editor .ve-extra-fields input[type="checkbox"]{width:22px;height:22px}
+
+.local-video-editor .ve-transport [data-ve="frame-prev"],.local-video-editor .ve-transport [data-ve="frame-next"]{white-space:nowrap;font-size:11px;padding-inline:4px;min-width:42px}
