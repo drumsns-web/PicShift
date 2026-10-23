@@ -1380,3 +1380,16 @@ body .local-video-editor .ve-timeline-scroll{scroll-behavior:auto;overflow-ancho
 
 /* Preserve the full frame; repeat small scenes instead of magnifying at high zoom. */
 body .local-video-editor .ve-clip-frame.has-scene{background-size:contain;background-repeat:repeat-x;background-position:left center;image-rendering:auto;background-color:#141414}
+
+/* Comfortable horizontal tools, above the phone home gesture area. */
+body .local-video-editor.local-video-editor{padding-bottom:calc(18px + env(safe-area-inset-bottom,0px));box-sizing:border-box}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu){overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;justify-content:flex-start;gap:8px;padding:8px;min-height:76px;flex-shrink:0;touch-action:pan-x;scrollbar-width:none;overscroll-behavior-x:contain}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu) button{flex:0 0 auto;min-width:72px;width:auto;min-height:56px;font-size:23px;padding:5px 10px}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu) button span{font-size:12px;line-height:1.4;white-space:nowrap}
+body .local-video-editor .ve-object-tools{position:absolute;display:flex;gap:5px;z-index:5;touch-action:none;overflow:visible}
+body .local-video-editor .ve-object-tools[hidden]{display:none}
+body .local-video-editor.local-video-editor .ve-object-tools button{display:flex;flex-direction:column;align-items:center;justify-content:center;width:42px;height:44px;min-height:44px;padding:2px;border:1px solid #fff;border-radius:22px;background:#415dea;color:#fff;box-shadow:0 2px 5px #0006;font-size:20px;line-height:1;touch-action:none}
+body .local-video-editor .ve-object-tools button span{font-size:9px;line-height:1.2;pointer-events:none}
+body .local-video-editor .ve-object-tools button[data-object=delete]{background:#bd303e}
+body .local-video-editor .ve-object-tools svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+body .local-video-editor.local-video-editor :is(.ve-bottom-tools,.ve-text-menu,.ve-text-options,.ve-video-menu,.ve-audio-menu,.ve-effects-menu,.ve-materials-menu,.ve-output-menu){margin-bottom:0}
