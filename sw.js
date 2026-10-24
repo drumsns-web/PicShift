@@ -1,4 +1,4 @@
-const CACHE='picshift-shell-v34';
+const CACHE='picshift-shell-v35';
 const SHELL=['./','index.html','manifest.webmanifest','standalone.css','pixshift-theme.css','style.css','assets/picshift-icon-192.png','assets/picshift-icon-512.png','install.js','standalone-app.js','local-materials.js','local-project.js','image-canvas.js','memo-image-editor.js','bubble-style.js','image-project.js','image-pdf.js','image-flipbook.js','image-video-editor.js','video-tools.js','lamejs.js','image-materials.js','assets/selected-bubbles-13-22.jpg','image-advanced.js','image-alignment.js','image-split.js','image-templates.js','image-studio-theme.js','personal-fonts.js','uploaded-fonts.js','ai-cutout.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL.map(path=>new Request(path,{cache:"reload"})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>(key.startsWith('drum-creative-')||key.startsWith('picshift-'))&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
