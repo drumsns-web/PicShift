@@ -1492,3 +1492,21 @@ body .local-video-editor.local-video-editor .ve-details[open][data-mode=video]:h
 .local-video-editor .ve-source-fps{margin:4px 0 7px;padding:7px 8px;border-radius:6px;background:#163944;color:#d8f7f9;font-size:11px;line-height:1.35}
 .local-video-editor .ve-source-fps[data-warning=yes]{background:#503516;color:#ffdda8;border:1px solid #e2a754}
 .local-video-editor .ve-source-fps[data-warning=unknown]{background:#2b3541;color:#d8e0e8}
+
+/* Video project recovery, export review, and audio track controls. */
+.local-video-editor .ve-recovery,.local-video-editor .ve-export-check{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 10px;border:1px solid #45c7e0;border-radius:10px;background:#122b36;color:#f2fbff;font-size:12px}
+.local-video-editor .ve-recovery[hidden],.local-video-editor .ve-export-check[hidden]{display:none}
+.local-video-editor .ve-recovery strong,.local-video-editor .ve-export-check strong{width:100%;font-size:13px}
+.local-video-editor .ve-recovery span,.local-video-editor .ve-export-check p{flex:1 1 100%;margin:0;line-height:1.35}
+.local-video-editor .ve-recovery button,.local-video-editor .ve-export-check button{min-height:32px;padding:5px 10px;border-radius:8px;border:1px solid #65cadd;background:#173c4a;color:#fff;font-weight:700}
+.local-video-editor .ve-recovery [data-ve=project-restore],.local-video-editor .ve-export-check [data-ve=export-check-start]{background:#23c9e2;color:#05222c}
+.local-video-editor .ve-export-check-actions{display:flex;gap:6px;width:100%}
+.local-video-editor .ve-export-check-actions button{flex:1}
+.local-video-editor .ve-export-warning:not(:empty){color:#ffce91}
+.local-video-editor .ve-project-status{padding:2px 8px;color:#a5cbd6;font-size:10px;line-height:1.2}
+.local-video-editor .ve-audio-track-actions{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:5px 0}
+.local-video-editor .ve-audio-track-actions button{min-height:30px;padding:4px 8px}
+.local-video-editor .ve-audio-track-actions button[aria-pressed=true]{background:#20c8e2;color:#082332;border-color:#20c8e2}
+.local-video-editor .ve-audio-track-actions label{display:flex;align-items:center;gap:5px;min-width:100px;color:inherit;font-size:11px}
+.local-video-editor .ve-audio-level{width:80px;height:9px;accent-color:#26d2e7}
+
