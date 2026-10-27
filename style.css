@@ -1521,3 +1521,17 @@ body .local-video-editor.local-video-editor .ve-details[open][data-mode=video]:h
 .local-video-editor .ve-copy-track-controls input{width:66px;accent-color:#eab865}
 .local-video-editor .ve-copy-track-controls button{min-height:31px;padding:5px 8px;border:1px solid #7589a7;border-radius:7px;background:#304159;color:#fff;font-size:11px;flex:none}
 .local-video-editor .ve-copy-track-controls [data-copy-action=delete]{border-color:#b5747a;color:#ffdadd}
+/* Playhead split and output range */
+body .local-video-editor>.ve-timeline-cursor .ve-playhead-split{position:absolute;top:19px;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:32px;height:32px;min-width:32px;padding:0;border:2px solid #e9fdff;border-radius:50%;background:#00bfd1;color:#06262b;font-size:17px;font-weight:900;line-height:1;pointer-events:auto;touch-action:manipulation;box-shadow:0 2px 8px #000a;z-index:9}
+body .local-video-editor>.ve-timeline-cursor .ve-playhead-split:active{background:#7beefa;transform:translateX(-50%) scale(.94)}
+.local-video-editor .ve-export-mark-bar{display:flex;align-items:center;gap:5px;flex:0 0 auto;min-height:33px;padding:2px 7px;background:#1d232d;color:#dce5ed;border-top:1px solid #374557;font-size:11px}
+.local-video-editor .ve-export-mark-bar button{min-width:36px;min-height:27px;padding:2px 6px;border:1px solid #66778d;border-radius:6px;background:#2b394b;color:#eefaff;font-size:11px;font-weight:850;touch-action:manipulation}
+.local-video-editor .ve-export-mark-bar button[aria-pressed=true]{border-color:#20d6e8;background:#164956;color:#95f5ff}
+.local-video-editor .ve-export-mark-bar output{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#cfeaf1;text-align:center;font-size:10px}
+.local-video-editor .ve-export-range-shade{position:absolute;top:0;bottom:0;z-index:4;box-sizing:border-box;background:#14d3df17;border-left:2px solid #0ed6e7;border-right:2px solid #0ed6e7;pointer-events:none}
+.local-video-editor .ve-export-range-shade[hidden]{display:none}
+.local-video-editor .ve-export-range-fields{display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;align-items:center;padding:8px;margin:3px 0;border:1px solid #3b5965;border-radius:8px;background:#192b33;color:#ebf7f9}
+.local-video-editor .ve-export-range-fields strong,.local-video-editor .ve-export-range-fields small{grid-column:1/-1}
+.local-video-editor .ve-export-range-fields label{display:grid;gap:3px;font-size:11px}
+.local-video-editor .ve-export-range-fields input{width:100%;min-width:0;box-sizing:border-box;padding:5px;background:#111d25;color:#fff;border:1px solid #647f8d;border-radius:5px}
+.local-video-editor .ve-export-range-fields small{font-size:10px;color:#b9ced7}
