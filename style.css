@@ -1510,3 +1510,14 @@ body .local-video-editor.local-video-editor .ve-details[open][data-mode=video]:h
 .local-video-editor .ve-audio-track-actions label{display:flex;align-items:center;gap:5px;min-width:100px;color:inherit;font-size:11px}
 .local-video-editor .ve-audio-level{width:80px;height:9px;accent-color:#26d2e7}
 
+/* Copied video track controls */
+.local-video-editor .ve-copied-video-track{height:42px;min-height:42px;margin-bottom:2px}
+.local-video-editor .ve-copied-video-track button{height:40px;min-height:40px;padding:4px 8px;background:linear-gradient(135deg,#6c4e9a,#343b6c);border:1px solid #b292e1;color:#fff;font-size:11px;font-weight:800;text-overflow:ellipsis}
+.local-video-editor .ve-copied-video-track button.is-selected{outline:2px solid #f7c967;outline-offset:-2px}
+.local-video-editor .ve-copy-track-controls{display:flex;align-items:center;gap:7px;min-height:42px;padding:5px 8px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;background:#202a38;border-top:1px solid #4e5d72;color:#f2f6ff;white-space:nowrap}
+.local-video-editor .ve-copy-track-controls[hidden]{display:none}
+.local-video-editor .ve-copy-track-controls strong{font-size:11px;flex:none;color:#ffd691}
+.local-video-editor .ve-copy-track-controls label{display:flex;align-items:center;gap:4px;font-size:11px;flex:none}
+.local-video-editor .ve-copy-track-controls input{width:66px;accent-color:#eab865}
+.local-video-editor .ve-copy-track-controls button{min-height:31px;padding:5px 8px;border:1px solid #7589a7;border-radius:7px;background:#304159;color:#fff;font-size:11px;flex:none}
+.local-video-editor .ve-copy-track-controls [data-copy-action=delete]{border-color:#b5747a;color:#ffdadd}
